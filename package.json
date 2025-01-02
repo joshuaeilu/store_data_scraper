@@ -1,0 +1,18 @@
+{
+  "name": "store_data_scraper",
+  "version": "1.0.0",
+  "description": "This project scrapes weekly deal data from flipp.com and stores it in a json file.",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Joshua Eilu",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "puppeteer": "^23.11.1"
+  }
+}
