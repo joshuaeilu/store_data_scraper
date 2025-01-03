@@ -1,0 +1,135 @@
+[
+  {
+    "storeName": "Gordon Food Service Store",
+    "storeImage": "https://images.wishabi.net/merchants/ljP4FJVn8Cs0jA==/mini_magick20200805-1-jfhe3f.png",
+    "validDate": "Valid Dec 26, 2024 – Jan 4, 2025",
+    "storeProducts": [
+      {
+        "image": "https://f.wishabi.net/page_items/362297183/1734704912/extra_large.jpg",
+        "price": "2.79",
+        "name": "81% Ground Beef"
+      },
+      {
+        "image": "https://f.wishabi.net/page_pdf_images/20047346/c1eb5dca-bede-11ef-a3b9-0edc53c25ee6/x_large",
+        "price": "17.99",
+        "name": "Beef Meatballs",
+        "description": "1/2 or 1 oz\n5 lb"
+      }
+    ]
+  },
+  {
+    "storeName": "Walmart",
+    "storeImage": "https://images.wishabi.net/merchants/2175/1399558010/large",
+    "validDate": "Valid Jan 2, 2025 – Jan 7, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Family Fare",
+    "storeImage": "https://images.wishabi.net/merchants/04e8046d-b429-4719-a600-2a7bfb28035c/mini_magick20230327-1-fjn7nm.png",
+    "validDate": "Valid Dec 26, 2024 – Jan 4, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "D&W Fresh Market",
+    "storeImage": "https://images.wishabi.net/merchants/2688/1431121408/large",
+    "validDate": "Valid Dec 26, 2024 – Jan 4, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Forest Hills Foods",
+    "storeImage": "https://images.wishabi.net/merchants/2689/1431121420/large",
+    "validDate": "Valid Dec 26, 2024 – Jan 4, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Dollar General",
+    "storeImage": "https://images.wishabi.net/merchants/2063/1400688936/large",
+    "validDate": "Valid Dec 29, 2024 – Jan 4, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Meijer",
+    "storeImage": "https://images.wishabi.net/merchants/2281/1400708516/large",
+    "validDate": "Valid Jan 5, 2025 – Jan 11, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Meijer",
+    "storeImage": "https://images.wishabi.net/merchants/2281/1400708516/large",
+    "validDate": "Valid Dec 26, 2024 – Jan 4, 2025",
+    "storeProducts": [
+      {
+        "image": "https://f.wishabi.net/page_items/361305818/1734409411/extra_large.jpg",
+        "price": "13.99",
+        "name": "Luke's Lobster Twin Pack Lobster Tails",
+        "description": "7 oz."
+      },
+      {
+        "image": "https://f.wishabi.net/page_items/361305821/1734409415/extra_large.jpg",
+        "price": "11.99",
+        "name": "Certified Angus Beef T-Bone Steak",
+        "description": "Beef loin."
+      }
+    ]
+  },
+  {
+    "storeName": "ALDI",
+    "storeImage": "https://images.wishabi.net/merchants/2353/1505910235/large",
+    "validDate": "Valid Jan 1, 2025 – Jan 7, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "ALDI",
+    "storeImage": "https://images.wishabi.net/merchants/2353/1505910235/large",
+    "validDate": "Valid Jan 8, 2025 – Jan 14, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "ALDI",
+    "storeImage": "https://images.wishabi.net/merchants/2353/1505910235/large",
+    "validDate": "Valid Jan 2, 2025 – Jan 7, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Ken's Fruit Market",
+    "storeImage": "https://images.wishabi.net/merchants/1517934214/1517934214/large",
+    "validDate": "Valid Dec 30, 2024 – Jan 5, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Target",
+    "storeImage": "https://images.wishabi.net/merchants/2040/1399406822/large",
+    "validDate": "Valid Dec 29, 2024 – Jan 4, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Fresh Thyme Market",
+    "storeImage": "https://images.wishabi.net/merchants/0e8321e9-8342-49de-a053-f46b927181f9/mini_magick20240530-1-bq2465.png",
+    "validDate": "Valid Jan 1, 2025 – Jan 7, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Harvest Health Foods",
+    "storeImage": "https://images.wishabi.net/merchants/3165/1494962437/large",
+    "validDate": "Valid Jan 1, 2025 – Jan 31, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Apple Valley Natural Foods",
+    "storeImage": "https://images.wishabi.net/merchants/1423857419/1423857419/large",
+    "validDate": "Valid Dec 30, 2024 – Jan 5, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Apple Valley Natural Foods",
+    "storeImage": "https://images.wishabi.net/merchants/1423857419/1423857419/large",
+    "validDate": "Valid Dec 30, 2024 – Jan 5, 2025",
+    "storeProducts": []
+  },
+  {
+    "storeName": "Ric's Food Center",
+    "storeImage": "https://images.wishabi.net/merchants/3121/1448052985/large",
+    "validDate": "Valid Dec 30, 2024 – Jan 5, 2025",
+    "storeProducts": []
+  }
+]
