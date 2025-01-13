@@ -8,18 +8,27 @@ function readProductMap(){
     return JSON.parse(productMap);
 }
 
+
+
 readProductMap();
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://support.google.com/firebase/answer/7015592
 const firebaseConfig = {
-    apiKey: "AIzaSyAqURZfi3Qz_xG-2z1WUB16RunpX88ku9E",
-  authDomain: "grocery-saver-application.firebaseapp.com",
-  projectId: "grocery-saver-application",
-  storageBucket: "grocery-saver-application.firebasestorage.app",
-  messagingSenderId: "305830128291",
-  appId: "1:305830128291:web:36b2c23fe006173d79ed16",
-  measurementId: "G-E5SFQ1YX5G"
+  //   apiKey: "AIzaSyAqURZfi3Qz_xG-2z1WUB16RunpX88ku9E",
+  // authDomain: "grocery-saver-application.firebaseapp.com",
+  // projectId: "grocery-saver-application",
+  // storageBucket: "grocery-saver-application.firebasestorage.app",
+  // messagingSenderId: "305830128291",
+  // appId: "1:305830128291:web:36b2c23fe006173d79ed16",
+  // measurementId: "G-E5SFQ1YX5G"
+  apiKey: "AIzaSyBien41fw8Tu4VilIUk6BaBv3cSv714xuI",
+  authDomain: "grocery-saver-applicatio-811f0.firebaseapp.com",
+  projectId: "grocery-saver-applicatio-811f0",
+  storageBucket: "grocery-saver-applicatio-811f0.firebasestorage.app",
+  messagingSenderId: "223250624774",
+  appId: "1:223250624774:web:a1e85056c939d4c42d6e87",
+  measurementId: "G-WVCT4W78BW"
 };
 
 // Initialize Firebase
@@ -78,3 +87,26 @@ async function storeProductMap() {
   
   // Call the function
   storeProductMap();
+
+  async function storeStoreData() {
+
+    const storeData = fs.readFileSync('storeData.json', 'utf8');
+    const parsedStoreData = JSON.parse(storeData);
+    const storesCollection = collection(db, "stores");
+  
+    for (let store of parsedStoreData) {
+      const storeData = {
+        name: store.storeName,
+        image: store.storeImage,
+      };
+  
+      // Add store to Firestore
+      const docRef = await addDoc(storesCollection, storeData);
+      console.log(`Store ${store.storeName} added with ID:`, docRef.id);
+    }
+  
+    console.log("All stores from storeData have been added to Firestore.");
+  }
+storeStoreData();
+
+  
