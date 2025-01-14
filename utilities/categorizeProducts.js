@@ -10,7 +10,7 @@ const buildBadMatchTable = (str) => {
     tableObj[str[len - 1]] = tableObj[str[len - 1]] || len;
     return tableObj;
 };
-
+// Boyer-Moore String Searching Algorithm
 const boyerMoore = (str, pattern) => {
     const badMatchTable = buildBadMatchTable(pattern);
     let offset = 0;

@@ -8,13 +8,7 @@ import { categories } from '../assets/categories.js';
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://support.google.com/firebase/answer/7015592
 const firebaseConfig = {
-  //   apiKey: "AIzaSyAqURZfi3Qz_xG-2z1WUB16RunpX88ku9E",
-  // authDomain: "grocery-saver-application.firebaseapp.com",
-  // projectId: "grocery-saver-application",
-  // storageBucket: "grocery-saver-application.firebasestorage.app",
-  // messagingSenderId: "305830128291",
-  // appId: "1:305830128291:web:36b2c23fe006173d79ed16",
-  // measurementId: "G-E5SFQ1YX5G"
+
   apiKey: "AIzaSyBien41fw8Tu4VilIUk6BaBv3cSv714xuI",
   authDomain: "grocery-saver-applicatio-811f0.firebaseapp.com",
   projectId: "grocery-saver-applicatio-811f0",

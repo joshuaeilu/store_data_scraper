@@ -16,6 +16,7 @@ async function getProductsForEachStore(storeId) {
         const storeData = await extractStoreData(storePage);
 
         if (allowedStores.includes(storeData.storeName)) {
+            // Extract all products from the store page of a valid store
             await extractAllProducts(storePage, storeData, database);
         }
 
