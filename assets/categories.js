@@ -1,25 +1,4 @@
-import fs from 'fs';
-
-// Read the storeData.json file
-const data = fs.readFileSync('storeData.json', 'utf8');
-const storeData = JSON.parse(data); // Parse the JSON data
-
-// Extract product list
-let productList = [];
-for (let store of storeData) {
-    try {
-        for (let product of store.storeProducts) {
-            if (product?.name) {
-                productList.push(product.name);
-            }
-        }
-    } catch (e) {
-        console.error("Error processing store products:", e);
-    }
-}
-
-// Category Definitions
-const categories = {
+export const categories = {
     meat: [
         "meat","beef", "pork", "sausage", "bacon", "chicken", "turkey", "ham",
         "steak", "lamb", "veal", "duck", "meatballs", "pulled pork",
@@ -46,21 +25,25 @@ const categories = {
         "parsnip", "bok choy", "brussels sprouts", "okra", "green beans",
         "peas", "chard", "scallion"
     ],
-    fruits: ["fruti",
+    fruits: [
         "apple", "banana", "orange", "grape", "kiwi", "mango", "pineapple",
         "blueberr", "strawberr", "raspberr", "watermelon", "peach",
         "plum", "pear", "cherr", "apricot", "grapefruit", "lemon",
-        "lime", "pomegranate", "blackberr", "cranberr", "tangerine",
+        "lime", "pomegranate", "blackberr", "cranberr", "tangerine","avocado","clementine",
         "cantaloupe", "honeydew", "dragonfruit", "papaya", "guava"
     ],
     beverages: ["beverage",
         "juice", "soda", "coffee", "tea", "water", "wine", "beer",
         "energy drink", "smoothie", "sports drink", "lemonade", "sparkling water",
         "iced tea", "kombucha", "milkshake", "chai", "latte", "espresso",
-        "cappuccino", "hot chocolate", "herbal tea"
+        "cappuccino", "hot chocolate", "herbal tea",
+        "cola", "diet cola", "pepsi", "coca cola", "sprite", "7up", "7-up", "fanta","mtn dew",
+        "mountain dew", "dr pepper", "root beer", "ginger ale", "cream soda",
+        "orange soda", "grape soda", "cherry cola", "sierra mist", "fresca",
+        "sunkist", "crush", "rc cola", "club soda", "tonic water"
     ],
     frozen: [
-        "frozen", "ice", "popsicles", "frozen pizza", "frozen vegetables",
+        "frozen", "popsicles", "frozen pizza", "frozen vegetables","pizza",
         "ice cream", "frozen fruits", "frozen dinners", "frozen meals",
         "frozen yogurt", "ice cubes", "frozen seafood", "frozen snacks"
     ],
@@ -103,7 +86,7 @@ const categories = {
         "mead", "schnapps", "bourbon", "cocktail", "martini",
         "margarita", "bloody mary", "rum punch", "port", "sherry"
     ],
-    vegetables: ["vegetable",
+    vegetables: ["vegetable","salad",
         "asparagus", "beet", "cabbage", "cauliflower", "celery",
         "corn", "eggplant", "kale", "leek", "mushroom",
         "peas", "pumpkin", "squash", "turnip", "spinach",
@@ -111,62 +94,3 @@ const categories = {
         "brussels sprouts", "chard", "scallion", "radish"
     ]
 };
-
-// Boyer-Moore Helpers
-const buildBadMatchTable = (str) => {
-    const tableObj = {};
-    const len = str.length;
-    for (let i = 0; i < len - 1; i++) {
-        tableObj[str[i]] = len - 1 - i;
-    }
-    tableObj[str[len - 1]] = tableObj[str[len - 1]] || len;
-    return tableObj;
-};
-
-const boyerMoore = (str, pattern) => {
-    const badMatchTable = buildBadMatchTable(pattern);
-    let offset = 0;
-    const lastIndex = pattern.length - 1;
-    const maxOffset = str.length - pattern.length;
-
-    while (offset <= maxOffset) {
-        let scanIndex = 0;
-        while (pattern[scanIndex] === str[offset + scanIndex]) {
-            if (scanIndex === lastIndex) return true;
-            scanIndex++;
-        }
-        const badMatchChar = str[offset + lastIndex];
-        offset += badMatchTable[badMatchChar] || 1;
-    }
-    return false;
-};
-
-// Categorize Products
-const categorizedProducts = {};
-
-const categorizeProducts = (product) => {
-    const productName = product.toLowerCase();
-    for (const [category, keywords] of Object.entries(categories)) {
-        for (const keyword of keywords) {
-            if (boyerMoore(productName, keyword)) {
-                return category;
-            }
-        }
-    }
-    return "uncategorized";
-};
-
-for (const product of productList) {
-    try {
-        const category = categorizeProducts(product);
-        if (!categorizedProducts[category]) {
-            categorizedProducts[category] = [];
-        }
-        categorizedProducts[category].push(product);
-    } catch (e) {
-        console.error("Error categorizing product:", product, e);
-    }
-}
-
-// Save to File
-fs.writeFileSync('categorizedProducts.json', JSON.stringify(categorizedProducts, null, 2));

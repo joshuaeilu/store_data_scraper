@@ -1,4 +1,5 @@
 //This file extracts all the products alongside with all their information.
+import categorizeProducts from "./categorizeProducts.js";
 
 export async function extractProductData(page, productId) {
     try {
@@ -8,11 +9,11 @@ export async function extractProductData(page, productId) {
         });
 
         // Wait for the product dialog to appear
-        await page.waitForSelector("flipp-item-dialog", { timeout: 5000 });
-        await page.waitForSelector('section.description', {timeout: 3000});
+        await page.waitForSelector("flipp-item-dialog", { timeout: 10000 });
+        await page.waitForSelector('section.description', { timeout: 5000 });
 
         // Extract product details
-        return await page.evaluate(() => {
+        const productData = await page.evaluate(() => {
             const dialog = document.querySelector("flipp-item-dialog");
             if (!dialog) {
                 throw new Error("Product dialog not found");
@@ -50,29 +51,35 @@ export async function extractProductData(page, productId) {
                 saleStory,
             };
         });
+        const category = categorizeProducts(productData.name);
+        return { productData, category };
     } catch (error) {
-        console.error(`Error extracting product data for product ID ${productId}:`, error.message);
-        return null; // Return null if extraction fails
+        return null;
     }
 }
 
 
-export async function extractAllProducts(page, storeProductIds) {
-    const storeProducts = [];
-    const storeProductIdsLength = storeProductIds.length;
-    for (let j = 0; j < storeProductIdsLength; j++) {
+export async function extractAllProducts(page, storeData, database) {
+    const storeProductIds = await storeData.storeProductIds;
+
+    const storeProductIdsLength = storeData.storeProductIds.length;
+    for (let j = 0; j < storeProductIdsLength ; j++) {
         const productId = storeProductIds[j];
-        if (!productId) {
-            console.log('Skipping invalid product id', productId);
-            continue;
-        }
         try {
-            const itemData = await extractProductData(page, storeProductIds[j]);
-            storeProducts.push(itemData);
+            const itemData = await extractProductData(page, productId);
+            itemData.productData.storeName = storeData.storeName;
+            //make a new category if it doesn't exist in database, and add products 
+            if (!database[itemData.category]) {
+                database[itemData.category] = [];
+                database[itemData.category].push(itemData.productData);
+            } else {
+                database[itemData.category].push(itemData.productData);
+            }
         } catch (error) {
-            console.error(`Error extracting product data for product ID ${productId}:`, error.message);
-            storeProducts.push(null);
+            console.error(`Error extracting product data for product ID ${productId}:`);
         }
+
     }
-    return storeProducts;
+
+
 }
