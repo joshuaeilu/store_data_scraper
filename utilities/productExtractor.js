@@ -5,7 +5,7 @@ export async function extractProductData(page, productId) {
     try {
         // Navigate to the product page
         await page.goto(`https://flipp.com/en-us/grand-rapids-mi/item/${productId}`, {
-            waitUntil: "domcontentloaded",
+            waitUntil: "load",
         });
 
         // Wait for the product dialog to appear
@@ -39,6 +39,7 @@ export async function extractProductData(page, productId) {
 
             // Extract sale story (if available)
             const saleStory = dialog.querySelector("div.sale-story")?.textContent.trim() || null;
+            
 
             // Return structured product data
             return {
@@ -76,7 +77,7 @@ export async function extractAllProducts(page, storeData, database) {
                 database[itemData.category].push(itemData.productData);
             }
         } catch (error) {
-            console.error(`Error extracting product data for product ID ${productId}:`);
+            console.error(`Skipping invalid product id: ${productId}`);
         }
 
     }
