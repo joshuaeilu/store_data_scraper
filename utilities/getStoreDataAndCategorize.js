@@ -4,7 +4,7 @@ import { extractStoreData } from "./storeExtractor.js";
 import { extractAllProducts } from "./productExtractor.js";
 import { saveToFile } from "./fileUtils.js";
 
-
+// Database to store all products
 let database = {};
 const allowedStores = ['Gordon Food Service Store', 'D&W Fresh Market', 'Fresh Thyme Market', 'Forest Hills Foods', 'Dollar General', 'Meijer', 'Family Fare'];
 async function getProductsForEachStore(storeId) {

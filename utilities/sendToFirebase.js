@@ -70,6 +70,6 @@ async function saveCategoriesToFirestore(categories) {
   }
 }
 
-// // Example usage
+//
 // saveCategoriesToFirestore(categories);
 
